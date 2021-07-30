@@ -8,7 +8,6 @@
 #include <sstream>      // for strinstream
 #include "Playlist.h"   // Song List class
  
-
 using namespace std;
 
 string editInput(string & input) {
@@ -28,7 +27,6 @@ string editInput(string & input) {
     for(int i=0; i < output.length(); i++) {
         output[i] = toupper(output[i]);
     }
-
     return output;
 }
 
@@ -122,6 +120,7 @@ int main() {
                 string name;
                 cout << "Enter the name of the song: ";
                 getline(cin, name);
+                cout << "---" << endl;
                 
                 // Delete song from playlist
                 playlist.deleteSong(editInput(name));
@@ -135,8 +134,7 @@ int main() {
             if (playlist.isEmpty()) cout << "The song list is empty.\n---" << endl;
             
             // Print playlist
-            else playlist.printSongs();
-            
+            else playlist.printSongs();    
         }
         
         // Print reverse playlist option
@@ -146,8 +144,7 @@ int main() {
             if (playlist.isEmpty()) cout << "The song list is empty.\n---" << endl;
             
             // Print reverse playlist
-            else playlist.printSongsReverse();
-            
+            else playlist.printSongsReverse();    
         }
         
         // Show total duration option
@@ -157,8 +154,7 @@ int main() {
             if (playlist.isEmpty()) cout << "The song list is empty.\n---" << endl;
             
             // Show total duration
-            else playlist.totalDuration();
-            
+            else playlist.totalDuration();            
         }
         
         // Print songs from genre option
@@ -181,8 +177,7 @@ int main() {
                 
                 // Print songs from genre func.
                 playlist.printSongsSameGenres(editInput(name));
-            }
-            
+            }            
         }
         
         // Print songs from singer option
@@ -205,8 +200,7 @@ int main() {
                 
                 // Print songs from singer func.
                 playlist.printSongsSameSinger(editInput(name));
-            }
-            
+            }            
         }
         
         // Delete playlist and exit option.
@@ -223,6 +217,5 @@ int main() {
             cout << "---" << endl;
         }
     }
-    
     return 0;
 }

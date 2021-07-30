@@ -53,8 +53,7 @@ void Playlist::addSong(string nm, string s, string g, int c, int d) {
         temp->next = temp;
         temp->prev = temp;
         head = temp;
-        tail = temp;
-        
+        tail = temp;   
     }
     
     // if new song should be added to end of playlist
@@ -100,8 +99,9 @@ void Playlist::deleteSong(string name) {
         tail->next = tmp->next;
         tmp->next->prev = tail;
         head = tmp->next;
+        delete tmp; tmp = NULL;
         cout << "The song " << name << " is deleted from the list." << endl;
-        free(tmp); tmp = NULL;
+        cout << "---" << endl;
         return;
     }
     
@@ -111,8 +111,9 @@ void Playlist::deleteSong(string name) {
         head->prev = tmp->prev;
         tmp->prev->next = head;
         tail = tmp->prev;
-        free(tmp); tmp = NULL;
+        delete tmp; tmp = NULL;
         cout << "The song " << name << " is deleted from the list." << endl;
+        cout << "---" << endl;
         return;
     }
     
@@ -122,15 +123,17 @@ void Playlist::deleteSong(string name) {
         if (p->name == name) {
             p->prev->next = p->next;
             p->next->prev = p->prev;
-            free(p); p = NULL;
+            delete p; p = NULL;
             
             cout << "The song " << name << " is deleted from the list." << endl;
+            cout << "---" << endl;
             return;
         }
         p = p->next;
     } while (p != head);
     
     cout << "The song " << name << " could not be found in the list." << endl;
+    cout << "---" << endl;
 }
 
 void Playlist::printSongs(void) const {

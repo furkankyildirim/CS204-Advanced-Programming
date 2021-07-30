@@ -43,8 +43,6 @@ public:
     
 private:
     song *head, *tail                                               ;    // start and end link of playlist
-    
 };
-
 
 #endif /* _PLAYLIST_H */
